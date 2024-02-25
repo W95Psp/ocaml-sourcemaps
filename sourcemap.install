@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/sourcemap/META"
+  "_build/install/default/lib/sourcemap/dune-package"
+  "_build/install/default/lib/sourcemap/opam"
+]
+bin: [
+  "_build/install/default/bin/sourcemap"
+]
