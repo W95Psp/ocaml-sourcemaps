@@ -12,8 +12,8 @@
         pkgs = import nixpkgs {
           inherit system;
         };
-        sourcemap = pkgs.ocamlPackages.buildDunePackage {
-          pname = "sourcemap";
+        sourcemaps = pkgs.ocamlPackages.buildDunePackage {
+          pname = "sourcemaps";
           version = "0.1";
           src = ./.;
           propagatedBuildInputs = with pkgs.ocamlPackages; [
@@ -28,9 +28,9 @@
           doCheck = false;
         };
       in {
-        packages.default = sourcemap;
+        packages.default = sourcemaps;
         devShells.default = pkgs.mkShell {
-          inputsFrom = [sourcemap];
+          inputsFrom = [sourcemaps];
           packages = [pkgs.ocamlformat pkgs.ocamlPackages.utop];
         };
       }

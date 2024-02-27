@@ -7,6 +7,8 @@ type range = { start : Location.t; end_ : Location.t option }
 module Chunk = struct
   type t = { gen : range; src : range; meta : meta } [@@deriving show, eq]
 
+  let compare (x : t) (y : t) = Location.compare x.gen.start y.gen.start
+
   let from_spanned ((start, end_, meta) : Spanned.t) : t =
     let gen = { start = start.gen; end_ = end_.gen } in
     let src = { start = start.src; end_ = end_.src } in

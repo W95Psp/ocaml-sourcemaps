@@ -3,6 +3,8 @@ type range = { start : Location.t; end_ : Location.t option }
 
 module Chunk : sig
   type t = { gen : range; src : range; meta : meta } [@@deriving show, eq]
+
+  val compare : t -> t -> int
 end
 
 open Chunk

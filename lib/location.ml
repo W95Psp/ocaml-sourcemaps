@@ -13,3 +13,10 @@ let plus_cols x cols = { x with col = x.col + cols }
 let op ( + ) x y = { line = x.line + y.line; col = x.col + y.col }
 let ( + ) = op ( + )
 let ( - ) = op ( - )
+
+let compare (x : t) (y : t) : int =
+  let open Int in
+  if x.line > y.line then 1
+  else if x.line = y.line then
+    if x.col > y.col then 1 else if x.col = y.col then 0 else -1
+  else -1
